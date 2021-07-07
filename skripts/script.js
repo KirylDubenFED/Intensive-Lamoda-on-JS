@@ -1,8 +1,6 @@
 const headerCityButton = document.querySelector('.header__city-button');
 
-if (localStorage.getItem('lamode-location')) {
-  headerCityButton.textContent = localStorage.getItem('lamode-location');
-}
+headerCityButton.textContent = localStorage.getItem('lamode-location') || 'Ваш город'
 
 headerCityButton.addEventListener('click', () => {
   const city = prompt('Уажите Ваш город')
