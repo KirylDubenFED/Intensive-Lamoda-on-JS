@@ -102,9 +102,18 @@ try {
   </article>
 `;
 
-
     return li;
+  };
+
+  const renderGoodsList = data => {
+    goodsList.textContent = '';
+
+    for (let i = 0; i < data.length; i++) {
+      data[i]
+    }
   }
+  
+  getGoods(renderGoodsList);
 
 } catch (err) {
   console.warn(err)
