@@ -60,9 +60,22 @@ cartOverlay.addEventListener('click', event => {
 // запрос базы данных
 
 const getData = async () => {
-  const data = await fetch('db.json');
+  const data = await fetch('db2.json');
 
-  if( data.ok) {
+  if (data.ok) {
     return data.json()
+  } else {
+    throw new Error(`Ошибка, Данных нет ${data.status} ${data.statusText}`)
   }
+};
+
+const getGoods = (callback) => {
+  getData()
+    .then(data => {
+      callback(data);
+    })
+    .catch(err => {
+      console.error(err)
+    });
 }
+
