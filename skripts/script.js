@@ -57,3 +57,12 @@ cartOverlay.addEventListener('click', event => {
 });
 
 
+// запрос базы данных
+
+const getData = async () => {
+  const data = await fetch('db.json');
+
+  if( data.ok) {
+    return data.json()
+  }
+}
