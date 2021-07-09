@@ -66,11 +66,7 @@ const getGoods = (callback) => {
     .catch(err => {
       console.error(err)
     });
-}; 
-
-getGoods((data) => {
-  console.warn(data)
-});
+};
 
 subheaderСart.addEventListener('click', cartModalOpen);
 
@@ -81,3 +77,35 @@ cartOverlay.addEventListener('click', event => {
     cartModalClose();
   }
 });
+
+
+try {
+  const goodsList = document.querySelector('.goods__list');
+  if (!goodsList) {
+    throw ' This is not a goods page!'
+  }
+
+  const createCard = data => {
+    const li = document.createElement('li');
+    li.classList.add('goods__item');
+    li.innerHTML = `
+      <article class="good">
+        <a class="good__link-img" href="card-good.html#id56454">
+            <img class="good__img" src="goods-image/AD002EMLUEA8_14164246_1_v1.jpg" alt="">
+        </a>
+        <div class="good__description">
+          <p class="good__price">2890 &#8381;</p>
+          <h3 class="good__title">Eazyway <span class="good__title__grey">/ Тайтсы</span></h3>
+          <p class="good__sizes">Размеры (RUS): <span class="good__sizes-list">40 42 44 46</span></p>
+          <a class="good__link" href="card-good.html#id56454">Подробнее</a>
+      </div>
+  </article>
+`;
+
+
+    return li;
+  }
+
+} catch (err) {
+  console.warn(err)
+}
