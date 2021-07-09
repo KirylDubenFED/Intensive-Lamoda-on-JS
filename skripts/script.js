@@ -46,21 +46,10 @@ const cartModalClose = () => {
   enableScroll();
 }
 
-subheaderСart.addEventListener('click', cartModalOpen);
-
-cartOverlay.addEventListener('click', event => {
-  const target = event.target;
-  if (target.matches('.cart__btn-close')
-    || target.matches('.cart-overlay')) {
-    cartModalClose();
-  }
-});
-
-
 // запрос базы данных
 
 const getData = async () => {
-  const data = await fetch('db2.json');
+  const data = await fetch('db.json');
 
   if (data.ok) {
     return data.json()
@@ -77,5 +66,18 @@ const getGoods = (callback) => {
     .catch(err => {
       console.error(err)
     });
-}
+}; 
 
+getGoods((data) => {
+  console.warn(data)
+});
+
+subheaderСart.addEventListener('click', cartModalOpen);
+
+cartOverlay.addEventListener('click', event => {
+  const target = event.target;
+  if (target.matches('.cart__btn-close')
+    || target.matches('.cart-overlay')) {
+    cartModalClose();
+  }
+});
